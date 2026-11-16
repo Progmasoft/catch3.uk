@@ -20,13 +20,40 @@ It is built with Nuxt 4, Nuxt Content and Nuxt i18n, in English, German, Russian
 
 ## Installing Catch3
 
-| System | From | Requires |
-| --- | --- | --- |
-| Linux | the Linux package repositories of Progmasoft | glibc 2.28 or later, libstdc++ with `GLIBCXX_3.4.34` or later |
-| macOS | `storage.catch3.uk/<version>/darwin-x86_64/Catch3-<version>-x86_64.dmg`, `storage.catch3.uk/<version>/darwin-arm64/Catch3-<version>-arm64.dmg` | macOS 13 or later |
-| Windows | `storage.catch3.uk/<version>/windows-x64/Catch3-<version>-x64.exe`, `storage.catch3.uk/<version>/windows-arm64/Catch3-<version>-ARM64.exe` | Windows 10 or later, 64-bit |
+Catch3 is the library and the `catch3` command, which runs test binaries, reads their results and reports them,
+and imports the results of other test frameworks. The command links the C++ standard library statically.
 
-The Windows installer installs for the current user, or for every user of the machine when that is chosen.
+| System | With | Requires |
+| --- | --- | --- |
+| Linux | the Linux package repositories of Progmasoft | glibc 2.28 or later |
+| macOS | `install.zsh` | macOS 13 or later |
+| Windows | `Install-Catch3.ps1` (PowerShell 7) or `install.cmd` | Windows 10 or later, 64-bit |
+
+A script downloads the archive of its system and processor with curl, extracts it into a temporary directory and
+installs from there. Without arguments it installs for the current user.
+
+| | `install.zsh` | `Install-Catch3.ps1` | `install.cmd` |
+| --- | --- | --- | --- |
+| for every user | `-g` | `-Global` | `/global` |
+| language of the messages | `-l en-us`, `de-de`, `ru-ru`, `fr-fr` | `-Language EnUs`, `DeDe`, `RuRu`, `FrFr` | `/langenus` or `/lang:enus`, and `dede`, `ruru`, `frfr` |
+| help | `-h` | `-Help` | `/?`, `/HELP` |
+| upper and lower case | told apart | not told apart | told apart, but `/HELP` in any case |
+
+### storage.catch3.uk
+
+```text
+<version>/darwin/arm64/catch3-<version>-darwin-arm64.zip
+<version>/darwin/x86_64/catch3-<version>-darwin-x86_64.zip
+<version>/darwin/install.zsh
+<version>/windows/arm64/catch3-<version>-windows-arm64.zip
+<version>/windows/x64/catch3-<version>-windows-x64.zip
+<version>/windows/Install-Catch3.ps1
+<version>/windows/install.cmd
+<version>/doxygen/catch3_doxygen-<version>.zip
+<version>/doxygen/catch3_doxygen-<version>.tar.xz
+```
+
+Each archive has its SHA-256, its BLAKE3 and its CycloneDX SBOM beside it.
 
 ## Licence
 
