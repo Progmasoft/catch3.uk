@@ -84,7 +84,7 @@ The messages of each language are in `i18n/locales`; a test fails when a languag
 changes its placeholders. Each release of Catch3 is a file in `content/releases`. The hero animation is
 `app/components/HeroField.vue`, drawn on a canvas.
 
-`npm run test:layout` serves `.output/public` locally and opens every page of the sitemap, and the download page of
+`npm run test:layout` serves `.output/public` locally with Python's `http.server` and opens every page of the sitemap, and the download page of
 each system, in Chromium at 360, 390, 768 and 1280 pixels; catch3.uk resolves to that local server. It fails when
 anything reaches past the edge of the screen, the header takes more than one line, a control is smaller than 24 by
 24 pixels, or the phone menu opens outside the screen. CI runs it after `generate`.

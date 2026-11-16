@@ -2,14 +2,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { expect, test } from "@playwright/test";
 
 // Every page of the site in every language: the generated sitemap lists them.
-const sitemap = readFileSync(
-  join(import.meta.dirname, "..", ".output", "public", "sitemap.xml"),
-  "utf8",
-);
+// Playwright runs from the repository root.
+const sitemap = readFileSync(".output/public/sitemap.xml", "utf8");
 const pages = [...sitemap.matchAll(/<loc>https:\/\/catch3\.uk([^<]*)<\/loc>/g)].map(
   (match) => match[1],
 );
@@ -115,4 +112,28 @@ for (const system of ["linux", "macos", "windows"]) {
 test("/download without a system shows the three systems", async ({ page }) => {
   await open(page, "/download");
   await expect(page.locator(".system")).toHaveCount(3);
+});
+
+// Nuxt Content builds the site even when a file of content/releases does not match its schema, so
+// the releases are checked as the page shows them.
+test("every release has a version, a date, a summary and its notes", async ({ page }) => {
+  await open(page, "/releases/");
+  const releases = await page.locator(".list > li").evaluateAll((items) =>
+    items.map((item) => ({
+      title: item.querySelector("h2")?.textContent?.trim() ?? "",
+      date: item.querySelector("time")?.getAttribute("datetime") ?? "",
+      summary: item.querySelector("p[lang=en]")?.textContent?.trim() ?? "",
+      notes: item.querySelector("a")?.getAttribute("href") ?? "",
+    })),
+  );
+  expect(releases.length).toBeGreaterThan(0);
+  for (const release of releases) {
+    const version = /^Catch3 (\d+(?:\.\d+){2,3})$/.exec(release.title)?.[1];
+    expect(version, release.title).toBeTruthy();
+    expect(release.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(Number.isNaN(Date.parse(`${release.date}T00:00:00Z`))).toBe(false);
+    expect(release.summary.length).toBeGreaterThan(20);
+    const prefix = "https://github.com/Progmasoft/catch3/releases/tag/";
+    expect([`${prefix}catch3-${version}`, `${prefix}${version}`]).toContain(release.notes);
+  }
 });

@@ -2,14 +2,13 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
 import { test } from "node:test";
+import english from "../i18n/locales/en-US.json" with { type: "json" };
+import german from "../i18n/locales/de-DE.json" with { type: "json" };
+import russian from "../i18n/locales/ru-RU.json" with { type: "json" };
+import french from "../i18n/locales/fr-FR.json" with { type: "json" };
 
-const folder = join(import.meta.dirname, "..", "i18n", "locales");
-const read = (name) => JSON.parse(readFileSync(join(folder, `${name}.json`), "utf8"));
-
-/** Every key of a message tree with the placeholders of its text, as "a.b.c {x}". */
+/** Every key of a message tree with the placeholders of its text, as "a.b.c x,y". */
 function keys(tree, prefix = "") {
   return Object.entries(tree).flatMap(([key, value]) =>
     typeof value === "string"
@@ -18,14 +17,18 @@ function keys(tree, prefix = "") {
   );
 }
 
-const english = keys(read("en-US")).sort();
+const reference = keys(english).sort();
 
-for (const language of ["de-DE", "ru-RU", "fr-FR"]) {
+for (const [language, messages] of Object.entries({
+  "de-DE": german,
+  "ru-RU": russian,
+  "fr-FR": french,
+})) {
   test(`${language} has every message of en-US with the same placeholders`, () => {
-    assert.deepEqual(keys(read(language)).sort(), english);
+    assert.deepEqual(keys(messages).sort(), reference);
   });
 
   test(`${language} leaves no message empty`, () => {
-    assert.ok(!JSON.stringify(read(language)).includes('""'), "an empty message");
+    assert.ok(!JSON.stringify(messages).includes('""'), "an empty message");
   });
 }

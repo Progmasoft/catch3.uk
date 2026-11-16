@@ -5,8 +5,8 @@ import { defineConfig } from "@playwright/test";
 
 /**
  * Layout tests of the generated site in Chromium, at the widths of phones, a
- * tablet and a desktop. catch3.uk resolves to the local server of
- * e2e/serve.mjs, so the pages keep their real addresses and no request
+ * tablet and a desktop. catch3.uk resolves to a local file server of
+ * .output/public, so the pages keep their real addresses and no request
  * leaves the machine.
  */
 const port = 3300;
@@ -43,7 +43,8 @@ export default defineConfig({
     { name: "desktop-1280", use: { viewport: { width: 1280, height: 800 } } },
   ],
   webServer: {
-    command: `node e2e/serve.mjs ${port}`,
+    // Python's own file server, as on any CI runner: a directory answers with its index.html.
+    command: `python3 -m http.server ${port} --bind 127.0.0.1 --directory .output/public`,
     url: `http://127.0.0.1:${port}/`,
     reuseExistingServer: !process.env.CI,
   },
