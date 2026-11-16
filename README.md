@@ -29,7 +29,9 @@ and imports the results of other test frameworks. The command links the C++ stan
 | macOS   | `install.zsh`                                        | macOS 13 or later           |
 | Windows | `Install-Catch3.ps1` (PowerShell 7) or `install.cmd` | Windows 10 or later, 64-bit |
 
-A script downloads the archive of its system and processor with curl, extracts it into a temporary directory and
+A script downloads the archive of its system and processor with curl, together with its `.sha256sums` file, and
+checks the archive against it; when the system has `b3sum`, it also downloads the `.b3sums` file and checks that.
+A mismatch stops it before anything is extracted. It then extracts the archive into a temporary directory and
 installs from there. Without arguments it installs for the current user.
 
 |                          | `install.zsh`                         | `Install-Catch3.ps1`                     | `install.cmd`                                           |
@@ -63,7 +65,7 @@ installs from there. Without arguments it installs for the current user.
 <version>/doxygen/catch3_doxygen-<version>.tar.xz
 ```
 
-Each archive has its SHA-256, its BLAKE3 and its CycloneDX SBOM beside it.
+Beside each archive are `<archive>.sha256sums`, `<archive>.b3sums` and `<archive>.cdx.json`, its CycloneDX SBOM.
 
 ## Licence
 
