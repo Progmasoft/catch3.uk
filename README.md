@@ -67,6 +67,28 @@ installs from there. Without arguments it installs for the current user.
 
 Beside each archive are `<archive>.sha256sums`, `<archive>.b3sums` and `<archive>.cdx.json`, its CycloneDX SBOM.
 
+## Development
+
+```bash
+npm ci
+npm run dev           # http://localhost:3000
+npm run generate      # .output/public: every page in every language, and sitemap.xml
+npm run check         # types
+npm test              # system detection, release order, translations
+npm run format:check
+npx playwright install chromium
+npm run test:layout   # after generate
+```
+
+The messages of each language are in `i18n/locales`; a test fails when a language lacks a message of en-US or
+changes its placeholders. Each release of Catch3 is a file in `content/releases`. The hero animation is
+`app/components/HeroField.vue`, drawn on a canvas.
+
+`npm run test:layout` serves `.output/public` locally and opens every page of the sitemap, and the download page of
+each system, in Chromium at 360, 390, 768 and 1280 pixels; catch3.uk resolves to that local server. It fails when
+anything reaches past the edge of the screen, the header takes more than one line, a control is smaller than 24 by
+24 pixels, or the phone menu opens outside the screen. CI runs it after `generate`.
+
 ## Licence
 
 [AGPL-3.0-or-later](LICENSE.txt). Progmasoft's own code is also covered by the

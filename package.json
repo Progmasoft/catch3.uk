@@ -1,0 +1,39 @@
+{
+  "name": "@progmasoft/catch3-uk",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-or-later",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "check": "nuxt typecheck",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "test:coverage": "c8 --reporter=lcov --reporter=text --include=app/utils/*.ts npm test",
+    "test:layout": "playwright test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@nuxt/content": "3.16.2",
+    "@nuxtjs/i18n": "10.6.0",
+    "nuxt": "4.6.4"
+  },
+  "overrides": {
+    "glob": "^14.0.4",
+    "minimatch": "^11.0.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/node": "24.19.2",
+    "c8": "12.0.0",
+    "prettier": "3.9.10",
+    "typescript": "5.9.3",
+    "vue-tsc": "3.3.13"
+  }
+}

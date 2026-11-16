@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "skip": "Zum Inhalt springen",
+    "label": "Website",
+    "features": "Funktionen",
+    "download": "Herunterladen",
+    "releases": "Versionen",
+    "docs": "Dokumentation",
+    "source": "Quellcode auf GitHub",
+    "menu": "Menü",
+    "language": "Sprache"
+  },
+  "home": {
+    "title": "Catch3: C++-Tests über Assertions hinaus",
+    "description": "Catch3 behält die Tests, die Sie für Catch2 schreiben, und ergänzt einen eigenen Runner, Property-Tests, Mocks, Snapshots und strukturierte Ergebnisse. C++17.",
+    "eyebrow": "Ein Testframework für C++17",
+    "headline": "C++-Tests über Assertions hinaus.",
+    "lede": "Catch3 behält die Testfälle, Assertions und Sections, die Sie für Catch2 schreiben, und ergänzt einen eigenen Runner, Property-Tests, Mocks, Snapshots und strukturierte Ergebnisse.",
+    "download": "Herunterladen",
+    "docs": "Dokumentation lesen",
+    "field": "Ein Feld von Tests in Perspektive: Eine Welle färbt sie grün, einer wird rot, wird gefangen und wird grün.",
+    "featuresTitle": "Was Catch3 ergänzt",
+    "featuresLede": "Alles, was Catch2-Tests tun, funktioniert weiter. Was Catch3 ergänzt, steht daneben, in eigenen Headern und einer eigenen Bibliothek.",
+    "features": {
+      "authoring": {
+        "title": "Vertraute Tests",
+        "text": "Testfälle, Assertions, Sections, Matcher, Generatoren, Listener und Benchmarks funktionieren unverändert."
+      },
+      "runner": {
+        "title": "Ein eigener Runner",
+        "text": "Tests laufen parallel in Worker-Prozessen; ein Absturz oder Hänger beendet einen Test, nicht den Lauf. Fehlschläge werden wiederholt, um instabile und reihenfolgeabhängige Tests zu unterscheiden."
+      },
+      "history": {
+        "title": "Ein Lauf erinnert sich",
+        "text": "Die Historie steuert Zeitlimits, Reihenfolge, inkrementelle Läufe und Wiederholungen. Instabile Tests kommen in Quarantäne; Berichte gibt es für Konsole, JUnit, JSON und als Traces."
+      },
+      "properties": {
+        "title": "Property-Tests",
+        "text": "Werte entstehen aus einem reproduzierbaren Seed, ein Prädikat wird über viele Durchläufe geprüft, und eine fehlschlagende Eingabe schrumpft zu einem kleineren Gegenbeispiel."
+      },
+      "mocks": {
+        "title": "Mocks",
+        "text": "Mocks virtueller Schnittstellen und freier Funktionen hinter einer Naht prüfen Aufrufzahl, Argumente und Reihenfolge."
+      },
+      "snapshots": {
+        "title": "Snapshots und Ergebnisse",
+        "text": "Text-Snapshots in Dateien Ihrer Wahl und ein öffentliches Ergebnismodell mit einem deterministischen JUnit-XML-Writer."
+      }
+    },
+    "exampleTitle": "Eine Property in wenigen Zeilen",
+    "exampleText": "Der Wurzel-Seed und die Ableitung jedes Durchlaufs sind stabil, daher lässt sich ein gemeldeter fehlschlagender Durchlauf wiederholen.",
+    "buildsTitle": "Baut mit dem, was Sie nutzen",
+    "buildsText": "Bazel ist der Haupt-Build. Projektdateien für CMake, Meson, Xmake und Premake werden daneben gepflegt, und ein installiertes Catch3 wird mit find_package oder pkg-config gefunden.",
+    "licenseTitle": "Freie Software",
+    "licenseText": "Dateien aus Catch2 behalten die Boost Software License 1.0; Dateien, die Progmasoft schreibt, stehen unter der GNU LGPL, Version 3 oder später. Catch3 ist keine offizielle Catch2-Version und wird von den Catch2-Maintainern nicht unterstützt.",
+    "ctaTitle": "Mit Catch3 beginnen",
+    "ctaText": "Laden Sie die Bibliothek herunter, lesen Sie, wie ein Catch2-Projekt umzieht, und führen Sie Ihre erste Property aus.",
+    "releases": "Alle Versionen"
+  },
+  "download": {
+    "title": "Catch3 herunterladen",
+    "description": "Installieren Sie den Befehl catch3 unter Linux, macOS oder Windows, oder verwenden Sie die Catch3-Bibliothek aus dem Quellcode.",
+    "lede": "Wählen Sie Ihr System. Die Seite zeigt, wie Sie dort den Befehl catch3 installieren.",
+    "systems": {
+      "linux": "Linux",
+      "macos": "macOS",
+      "windows": "Windows"
+    },
+    "requirements": {
+      "linux": "Linux mit glibc 2.28 oder neuer, auf x86-64 oder ARM64.",
+      "macos": "macOS 13 oder neuer, auf Apple Silicon oder Intel.",
+      "windows": "Windows 10 oder neuer, 64 Bit, auf x64 oder ARM64."
+    },
+    "notice": "Catch3 {version}, die neueste Version, enthält keinen Befehl catch3; die Installer unten laden ihn ab der ersten Version, die ihn enthält. Die Bibliothek unten ist in jeder Version enthalten.",
+    "commandTitle": "Der Befehl catch3",
+    "commandText": "catch3 liest Testergebnisse und berichtet sie, importiert die Ergebnisse anderer Testframeworks und führt Testprogramme aus. Er bringt seine C++-Standardbibliothek mit und verlangt daher nichts von der libstdc++ des Systems.",
+    "repositoriesTitle": "Paketquellen",
+    "repositoriesText": "Progmasoft betreibt eine Paketquelle für jeden Paketmanager:",
+    "scriptTitle": "Mit einem Skript installieren",
+    "macosRun": "Laden Sie den Installer der Version herunter und führen Sie ihn aus:",
+    "windowsPowerShell": "In PowerShell 7:",
+    "windowsCmd": "In der Eingabeaufforderung:",
+    "optionsTitle": "Optionen",
+    "option": "Option",
+    "effect": "Wirkung",
+    "optionUser": "Ohne Optionen installiert das Skript für den aktuellen Benutzer.",
+    "optionGlobal": "installiert für alle Benutzer des Rechners",
+    "optionLanguage": "die Sprache seiner Meldungen",
+    "optionHelp": "zeigt die Hilfe",
+    "caseZsh": "Die Optionen von install.zsh unterscheiden Groß- und Kleinschreibung.",
+    "caseCmd": "Die Optionen von install.cmd unterscheiden Groß- und Kleinschreibung, außer /HELP.",
+    "casePowerShell": "Die Optionen von Install-Catch3.ps1 unterscheiden Groß- und Kleinschreibung nicht.",
+    "verify": "Ein Skript lädt das Archiv für Ihren Prozessor mit curl und prüft es gegen seine SHA-256-Datei und, wenn b3sum installiert ist, gegen seine BLAKE3-Datei. Bei einer Abweichung bricht es ab, bevor etwas entpackt wird; sonst entpackt es in ein temporäres Verzeichnis und installiert von dort.",
+    "libraryTitle": "Die Bibliothek",
+    "libraryText": "Catch3 ist eine kompilierte C++17-Bibliothek. Bauen und installieren Sie sie aus dem Quellarchiv einer Version und finden Sie sie dann mit CMake:",
+    "sourceArchive": "Quellcode von Catch3 {version}"
+  },
+  "releases": {
+    "title": "Versionen",
+    "description": "Alle Versionen von Catch3, die neueste zuerst, jeweils mit ihren Notizen.",
+    "lede": "Alle Versionen von Catch3, die neueste zuerst. Die vollständigen Notizen jeder Version stehen auf GitHub.",
+    "latest": "Neueste",
+    "notes": "Versionshinweise",
+    "summaryLanguage": "Die Zusammenfassungen sind auf Englisch, wie die Versionshinweise."
+  },
+  "footer": {
+    "summary": "Ein Testframework für C++17 von Progmasoft.",
+    "project": "Projekt",
+    "source": "Quellcode",
+    "issues": "Issues",
+    "siteSource": "Quellcode der Website",
+    "progmasoft": "Progmasoft",
+    "site": "Diese Website ist freie Software unter der GNU AGPL, Version 3 oder später."
+  }
+}
