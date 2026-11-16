@@ -25,7 +25,7 @@ and imports the results of other test frameworks. The command links the C++ stan
 
 | System  | With                                                 | Requires                    |
 | ------- | ---------------------------------------------------- | --------------------------- |
-| Linux   | the Linux package repositories of Progmasoft         | glibc 2.28 or later         |
+| Linux   | the Linux package repositories of Progmasoft (below) | glibc 2.28 or later         |
 | macOS   | `install.zsh`                                        | macOS 13 or later           |
 | Windows | `Install-Catch3.ps1` (PowerShell 7) or `install.cmd` | Windows 10 or later, 64-bit |
 
@@ -38,6 +38,16 @@ installs from there. Without arguments it installs for the current user.
 | language of the messages | `-l en-us`, `de-de`, `ru-ru`, `fr-fr` | `-Language EnUs`, `DeDe`, `RuRu`, `FrFr` | `/langenus` or `/lang:enus`, and `dede`, `ruru`, `frfr` |
 | help                     | `-h`                                  | `-Help`                                  | `/?`, `/HELP`                                           |
 | upper and lower case     | told apart                            | not told apart                           | told apart, but `/HELP` in any case                     |
+
+### The Linux package repositories of Progmasoft
+
+| Package manager | Repository                             |
+| --------------- | -------------------------------------- |
+| APT             | `apt.progmasoft.com`                   |
+| DNF             | `dnf.progmasoft.com`                   |
+| Zypper          | `zypp.progmasoft.com`                  |
+| Nix             | `nix.progmasoft.com`, a Git repository |
+| pacman          | `pacman.progmasoft.com`                |
 
 ### storage.catch3.uk
 
