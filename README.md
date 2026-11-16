@@ -9,24 +9,63 @@ It is built with Nuxt 4, Nuxt Content and Nuxt i18n, in English, German, Russian
 
 ## What it serves
 
-| Address | What |
-| --- | --- |
-| `catch3.uk/` | the home page |
-| `catch3.uk/download` | sends the visitor to the download page of their operating system |
-| `catch3.uk/download?os=linux`, `?os=macos`, `?os=windows` | how to install Catch3 on that system |
-| `catch3.uk/releases/` | every release with its notes and files |
-| `storage.catch3.uk/<version>/…` | the installers of each release |
-| `survey.catch3.uk` | the user survey, a Nitro server of its own |
+| Address                                                   | What                                                             |
+| --------------------------------------------------------- | ---------------------------------------------------------------- |
+| `catch3.uk/`                                              | the home page                                                    |
+| `catch3.uk/download`                                      | sends the visitor to the download page of their operating system |
+| `catch3.uk/download?os=linux`, `?os=macos`, `?os=windows` | how to install Catch3 on that system                             |
+| `catch3.uk/releases/`                                     | every release with its notes and files                           |
+| `storage.catch3.uk/<version>/…`                           | the installers of each release                                   |
+| `survey.catch3.uk`                                        | the user survey, a Nitro server of its own                       |
 
 ## Installing Catch3
 
-| System | From | Requires |
-| --- | --- | --- |
-| Linux | the Linux package repositories of Progmasoft | glibc 2.28 or later, libstdc++ with `GLIBCXX_3.4.34` or later |
-| macOS | `storage.catch3.uk/<version>/darwin-x86_64/Catch3-<version>-x86_64.dmg`, `storage.catch3.uk/<version>/darwin-arm64/Catch3-<version>-arm64.dmg` | macOS 13 or later |
-| Windows | `storage.catch3.uk/<version>/windows-x64/Catch3-<version>-x64.exe`, `storage.catch3.uk/<version>/windows-arm64/Catch3-<version>-ARM64.exe` | Windows 10 or later, 64-bit |
+Catch3 is the library and the `catch3` command, which runs test binaries, reads their results and reports them,
+and imports the results of other test frameworks. The command links the C++ standard library statically.
 
-The Windows installer installs for the current user, or for every user of the machine when that is chosen.
+| System  | With                                                 | Requires                    |
+| ------- | ---------------------------------------------------- | --------------------------- |
+| Linux   | the Linux package repositories of Progmasoft (below) | glibc 2.28 or later         |
+| macOS   | `install.zsh`                                        | macOS 13 or later           |
+| Windows | `Install-Catch3.ps1` (PowerShell 7) or `install.cmd` | Windows 10 or later, 64-bit |
+
+A script downloads the archive of its system and processor with curl, together with its `.sha256sums` file, and
+checks the archive against it; when the system has `b3sum`, it also downloads the `.b3sums` file and checks that.
+A mismatch stops it before anything is extracted. It then extracts the archive into a temporary directory and
+installs from there. Without arguments it installs for the current user.
+
+|                          | `install.zsh`                         | `Install-Catch3.ps1`                     | `install.cmd`                                           |
+| ------------------------ | ------------------------------------- | ---------------------------------------- | ------------------------------------------------------- |
+| for every user           | `-g`                                  | `-Global`                                | `/global`                                               |
+| language of the messages | `-l en-us`, `de-de`, `ru-ru`, `fr-fr` | `-Language EnUs`, `DeDe`, `RuRu`, `FrFr` | `/langenus` or `/lang:enus`, and `dede`, `ruru`, `frfr` |
+| help                     | `-h`                                  | `-Help`                                  | `/?`, `/HELP`                                           |
+| upper and lower case     | told apart                            | not told apart                           | told apart, but `/HELP` in any case                     |
+
+### The Linux package repositories of Progmasoft
+
+| Package manager | Repository                             |
+| --------------- | -------------------------------------- |
+| APT             | `apt.progmasoft.com`                   |
+| DNF             | `dnf.progmasoft.com`                   |
+| Zypper          | `zypp.progmasoft.com`                  |
+| Nix             | `nix.progmasoft.com`, a Git repository |
+| pacman          | `pacman.progmasoft.com`                |
+
+### storage.catch3.uk
+
+```text
+<version>/darwin/arm64/catch3-<version>-darwin-arm64.zip
+<version>/darwin/x86_64/catch3-<version>-darwin-x86_64.zip
+<version>/darwin/install.zsh
+<version>/windows/arm64/catch3-<version>-windows-arm64.zip
+<version>/windows/x64/catch3-<version>-windows-x64.zip
+<version>/windows/Install-Catch3.ps1
+<version>/windows/install.cmd
+<version>/doxygen/catch3_doxygen-<version>.zip
+<version>/doxygen/catch3_doxygen-<version>.tar.xz
+```
+
+Beside each archive are `<archive>.sha256sums`, `<archive>.b3sums` and `<archive>.cdx.json`, its CycloneDX SBOM.
 
 ## Licence
 
