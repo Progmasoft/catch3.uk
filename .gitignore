@@ -1,0 +1,14 @@
+# SPDX-FileCopyrightText: 2026 Progmasoft <support@progmasoft.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+node_modules/
+.nuxt/
+.output/
+.data/
+.cache/
+# nuxt generate leaves dist as a symbolic link to .output/public.
+dist
+coverage/
+*.log
+.env
+.env.*

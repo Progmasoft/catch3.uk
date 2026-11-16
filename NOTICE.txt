@@ -1,0 +1,6 @@
+Copyright 2026 Progmasoft <support@progmasoft.com>
+
+Project-owned source code is licensed under AGPL-3.0-or-later with the Progmasoft Patent Grant, Version 1.1.
+See LICENSE.txt, PATENTS.md, and LICENSES/AdditionRef-Progmasoft-Patent-Grant-1.1.txt.
+
+The Catch3 logo is a mark of Progmasoft; the licence of the code does not grant use of it as a mark.
