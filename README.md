@@ -9,35 +9,35 @@ It is built with Nuxt 4, Nuxt Content and Nuxt i18n, in English, German, Russian
 
 ## What it serves
 
-| Address | What |
-| --- | --- |
-| `catch3.uk/` | the home page |
-| `catch3.uk/download` | sends the visitor to the download page of their operating system |
-| `catch3.uk/download?os=linux`, `?os=macos`, `?os=windows` | how to install Catch3 on that system |
-| `catch3.uk/releases/` | every release with its notes and files |
-| `storage.catch3.uk/<version>/…` | the installers of each release |
-| `survey.catch3.uk` | the user survey, a Nitro server of its own |
+| Address                                                   | What                                                             |
+| --------------------------------------------------------- | ---------------------------------------------------------------- |
+| `catch3.uk/`                                              | the home page                                                    |
+| `catch3.uk/download`                                      | sends the visitor to the download page of their operating system |
+| `catch3.uk/download?os=linux`, `?os=macos`, `?os=windows` | how to install Catch3 on that system                             |
+| `catch3.uk/releases/`                                     | every release with its notes and files                           |
+| `storage.catch3.uk/<version>/…`                           | the installers of each release                                   |
+| `survey.catch3.uk`                                        | the user survey, a Nitro server of its own                       |
 
 ## Installing Catch3
 
 Catch3 is the library and the `catch3` command, which runs test binaries, reads their results and reports them,
 and imports the results of other test frameworks. The command links the C++ standard library statically.
 
-| System | With | Requires |
-| --- | --- | --- |
-| Linux | the Linux package repositories of Progmasoft | glibc 2.28 or later |
-| macOS | `install.zsh` | macOS 13 or later |
+| System  | With                                                 | Requires                    |
+| ------- | ---------------------------------------------------- | --------------------------- |
+| Linux   | the Linux package repositories of Progmasoft         | glibc 2.28 or later         |
+| macOS   | `install.zsh`                                        | macOS 13 or later           |
 | Windows | `Install-Catch3.ps1` (PowerShell 7) or `install.cmd` | Windows 10 or later, 64-bit |
 
 A script downloads the archive of its system and processor with curl, extracts it into a temporary directory and
 installs from there. Without arguments it installs for the current user.
 
-| | `install.zsh` | `Install-Catch3.ps1` | `install.cmd` |
-| --- | --- | --- | --- |
-| for every user | `-g` | `-Global` | `/global` |
+|                          | `install.zsh`                         | `Install-Catch3.ps1`                     | `install.cmd`                                           |
+| ------------------------ | ------------------------------------- | ---------------------------------------- | ------------------------------------------------------- |
+| for every user           | `-g`                                  | `-Global`                                | `/global`                                               |
 | language of the messages | `-l en-us`, `de-de`, `ru-ru`, `fr-fr` | `-Language EnUs`, `DeDe`, `RuRu`, `FrFr` | `/langenus` or `/lang:enus`, and `dede`, `ruru`, `frfr` |
-| help | `-h` | `-Help` | `/?`, `/HELP` |
-| upper and lower case | told apart | not told apart | told apart, but `/HELP` in any case |
+| help                     | `-h`                                  | `-Help`                                  | `/?`, `/HELP`                                           |
+| upper and lower case     | told apart                            | not told apart                           | told apart, but `/HELP` in any case                     |
 
 ### storage.catch3.uk
 
