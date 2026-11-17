@@ -6,6 +6,7 @@
 // footer of the site around the status, one sentence and the way back, on a field of dots like the
 // spheres of the home page. nginx serves the generated /404.html for every unknown address.
 import type { NuxtError } from "#app";
+import { computed, useHead, useI18n, useLocalePath } from "#imports";
 
 const props = defineProps<{ error: NuxtError }>();
 const { t } = useI18n();
