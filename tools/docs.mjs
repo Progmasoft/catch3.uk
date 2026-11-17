@@ -5,7 +5,7 @@
 // pages of /docs/. The documentation lives with the source and keeps the licenses that repository
 // states; the copy is generated and not committed.
 //
-//   node tools/docs.mjs <catch3-checkout>
+//   node tools/docs.mjs CATCH3_CHECKOUT
 //
 // Links between documents become links between pages, links to other files of the repository
 // point at GitHub, and the "Home" footer and the top anchor of each document are dropped, as the
@@ -17,7 +17,7 @@ import { docSlug, rewriteDoc } from "../app/utils/docs.ts";
 
 const checkout = process.argv[2];
 if (!checkout) {
-  console.error("usage: node tools/docs.mjs <catch3-checkout>");
+  console.error("usage: node tools/docs.mjs CATCH3_CHECKOUT");
   process.exit(2);
 }
 

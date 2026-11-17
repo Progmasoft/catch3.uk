@@ -56,5 +56,5 @@ export function rewriteDoc(text: string): { title: string; body: string } {
     .replace(/\n---\s*\n*$/, "\n")
     .replace(/^\n+/, "");
   const heading = body.match(/^# (.+)$/m);
-  return { title: heading ? heading[1]!.trim() : "Catch3", body };
+  return { title: heading?.[1]?.trim() ?? "Catch3", body };
 }
