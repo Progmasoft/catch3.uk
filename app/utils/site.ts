@@ -21,7 +21,7 @@ export const localeTags = { "": "en-US", "/de": "de-DE", "/ru": "ru-RU", "/fr": 
 export const sitePages = ["/", "/download", "/releases/"] as const;
 
 /** The operating systems of the download page, in the order it lists them. */
-export const systems = ["linux", "macos", "windows"] as const;
+export const systems = ["macos", "windows", "linux"] as const;
 export type System = (typeof systems)[number];
 
 /** Whether a value of the `os` query parameter names one of the systems. */

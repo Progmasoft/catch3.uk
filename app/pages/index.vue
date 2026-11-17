@@ -3,7 +3,7 @@
 
 <script setup lang="ts">
 import { docs } from "~/utils/site";
-import { catch3Data, jsonLd } from "~/utils/structured";
+import { catch3Data, jsonLd, websiteData } from "~/utils/structured";
 
 const { t, locale, locales } = useI18n();
 const localePath = useLocalePath();
@@ -25,9 +25,10 @@ useHead(() => ({
     {
       key: "structured-data",
       type: "application/ld+json",
-      innerHTML: jsonLd(
+      innerHTML: jsonLd([
+        websiteData(language.value),
         catch3Data(language.value, localePath("/"), t("home.description"), releases.value?.[0]),
-      ),
+      ]),
     },
   ],
 }));

@@ -5,7 +5,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { test } from "node:test";
 import { sitePages } from "../app/utils/site.ts";
-import { catch3Data, jsonLd } from "../app/utils/structured.ts";
+import { catch3Data, jsonLd, websiteData } from "../app/utils/structured.ts";
 
 const latest = { version: "0.4.0", date: "2026-11-15", tag: "catch3-0.4.0", summary: "..." };
 
@@ -22,6 +22,34 @@ test("the home page describes Catch3 with its latest release", () => {
   ]);
   assert.equal(catch3Data("en-US", "/", "x").url, "https://catch3.uk/");
   assert.equal(catch3Data("en-US", "/", "x").version, undefined);
+});
+
+test("the site calls itself Catch3", () => {
+  const site = websiteData("fr-FR");
+  assert.equal(site["@type"], "WebSite");
+  assert.equal(site.name, "Catch3");
+  assert.equal(site.url, "https://catch3.uk/");
+  assert.equal(site.about["@id"], catch3Data("fr-FR", "/fr", "x")["@id"]);
+});
+
+test("robots.txt has the rules of progmasoft.com and names the sitemap of catch3.uk", () => {
+  const robots = readFileSync("public/robots.txt", "utf8");
+  for (const [agent, rule] of [
+    ["Googlebot", "Allow"],
+    ["Google-Extended", "Allow"],
+    ["OAI-SearchBot", "Allow"],
+    ["ChatGPT-User", "Allow"],
+    ["GPTBot", "Disallow"],
+    ["Claude-SearchBot", "Allow"],
+    ["Claude-User", "Allow"],
+    ["ClaudeBot", "Allow"],
+    ["CCBot", "Disallow"],
+    ["Bytespider", "Disallow"],
+    ["*", "Allow"],
+  ]) {
+    assert.ok(robots.includes(`User-Agent: ${agent}\n${rule}: /\n`), agent);
+  }
+  assert.ok(robots.trimEnd().endsWith("Sitemap: https://catch3.uk/sitemap.xml"));
 });
 
 test("JSON-LD text cannot close its script element", () => {

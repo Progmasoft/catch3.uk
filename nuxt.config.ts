@@ -44,10 +44,19 @@ export default defineNuxtConfig({
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { property: "og:site_name", content: "Catch3" },
+        { name: "application-name", content: "Catch3" },
         { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
         { name: "theme-color", content: "#0b0d10", media: "(prefers-color-scheme: dark)" },
       ],
-      link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
+      // The icons are Catch3's ball; search results and browser tabs show them for the site.
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico", sizes: "16x16 32x32 48x48" },
+        { rel: "icon", type: "image/png", href: "/icon-192.png", sizes: "192x192" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
+        { rel: "manifest", href: "/site.webmanifest" },
+      ],
     },
   },
   nitro: {

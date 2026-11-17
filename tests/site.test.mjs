@@ -26,6 +26,10 @@ test("iOS, iPadOS and unknown systems get no installer page", () => {
   assert.equal(detectSystem("", "SomethingElse/1.0"), undefined);
 });
 
+test("the download page lists macOS, then Windows, then Linux", () => {
+  assert.deepEqual([...systems], ["macos", "windows", "linux"]);
+});
+
 test("only the three systems are values of ?os=", () => {
   for (const system of systems) assert.ok(isSystem(system));
   for (const value of ["", "Linux", "android", undefined, 3, ["linux"]])

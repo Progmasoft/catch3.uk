@@ -40,6 +40,23 @@ export function catch3Data(language: string, path: string, description: string, 
   };
 }
 
+/**
+ * The site itself, so that search results name it Catch3: its name, the names it is also known by, and its address.
+ */
+export function websiteData(language: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://catch3.uk/#website",
+    name: "Catch3",
+    alternateName: ["catch3.uk", "Progmasoft Catch3"],
+    url: "https://catch3.uk/",
+    inLanguage: language,
+    about: { "@id": "https://catch3.uk/#software" },
+    publisher: { "@id": "https://progmasoft.com/#organization" },
+  };
+}
+
 /** The text of a JSON-LD script element; `<` is escaped so that no value can close it. */
 export function jsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, "\\u003c");
