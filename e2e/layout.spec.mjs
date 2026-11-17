@@ -131,7 +131,7 @@ test("every release has a version, a date, its notes and its source files", asyn
   expect(rows.length).toBeGreaterThan(0);
   expect(rows.map((row) => row.open)).toEqual(rows.map((_, index) => index === 0));
   for (const row of rows) {
-    expect(row.version).toMatch(/^\d+(\.\d+){2,3}$/);
+    expect(row.version).toMatch(/^\d+\.\d+\.\d+(?:\.\d+)?$/);
     expect(row.id).toBe(`v${row.version}`);
     expect(row.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(Number.isNaN(Date.parse(`${row.date}T00:00:00Z`))).toBe(false);

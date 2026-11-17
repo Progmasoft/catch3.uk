@@ -6,6 +6,17 @@
 // and ?os=windows are the pages of each system. The generated page has no query, so the page of a
 // system appears once the page has started in the browser; before that, and without a script, it
 // shows the three systems to choose from.
+import {
+  computed,
+  onMounted,
+  ref,
+  useI18n,
+  useLocalePath,
+  useRoute,
+  useRouter,
+  useSeoMeta,
+} from "#imports";
+import { useReleases } from "~/composables/useReleases";
 import { detectSystem, isSystem, systems, type System } from "~/utils/site";
 import { majorMinor, sourceFiles } from "~/utils/releases";
 
