@@ -4,9 +4,11 @@
 > and adds a runner of its own, property tests, mocks, snapshots and structured results. It is a compiled library;
 > its headers work in C++17 and later. Files that come from Catch2 keep the Boost Software License 1.0; files
 > Progmasoft writes are under the GNU LGPL, version 3 or later, from Catch3 0.5.0 on (earlier releases: MPL-2.0 with
-> the Progmasoft Linking Exception). Catch3 as a whole is therefore not under the Boost license: using it means using
-> its LGPL files, whose conditions apply when Catch3 or a work containing it is given to others; what they ask
-> depends on how Catch3 is linked (shared or static), how much of its headers a work compiles in, and how it is given
+> the Progmasoft Linking Exception). Catch3 as a whole is therefore not under the Boost license alone, and its Boost
+> files do not lift the LGPL of the others. Whether the LGPL asks anything, and what, depends on the case: running
+> one's own tests usually asks nothing; giving Catch3 or a work built with it to others may call for a notice, the
+> source of Catch3 or a way to relink, depending on how Catch3 is linked (shared or static), how much of its headers a
+> work compiles in, and how the work is given. The license notes of the repository go through the cases
 > (https://github.com/Progmasoft/catch3/blob/devel/LICENSES/README.md#using-catch3-as-a-whole). Catch3 is not an
 > official Catch2 release and is not endorsed by Catch2's maintainers.
 
