@@ -4,6 +4,8 @@
 <!-- Switches between the light and the dark theme and remembers the choice in this browser. Until
      the visitor chooses, the page follows the theme of the system. -->
 <script setup lang="ts">
+import { onMounted, ref, useI18n } from "#imports";
+
 const { t } = useI18n();
 const dark = ref(false);
 
