@@ -24,8 +24,24 @@
   color-scheme: light;
 }
 
+/* The theme the visitor chose (data-theme, set before the first paint), or the system's. */
+:root[data-theme="dark"] {
+  --ground: #0b0d10;
+  --surface: #14171c;
+  --surface-strong: #1c2027;
+  --ink: #f1f3f6;
+  --ink-soft: #c2c7d0;
+  --ink-faint: #9aa1ad;
+  --line: #2a2f38;
+  --red: #ff4a2b;
+  --red-ink: #ff7a61;
+  --green: #4fd08a;
+  --header: rgb(11 13 16 / 86%);
+  color-scheme: dark;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --ground: #0b0d10;
     --surface: #14171c;
     --surface-strong: #1c2027;
@@ -194,6 +210,14 @@ h3 {
 
 h1 {
   font-size: clamp(2.6rem, 7vw, 5.4rem);
+}
+
+/* A long word of a heading, such as German compounds, breaks by the rules of the page's language
+   rather than past the edge of a phone. */
+h1,
+h2 {
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 h2 {

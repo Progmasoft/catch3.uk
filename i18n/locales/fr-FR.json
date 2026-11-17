@@ -8,7 +8,9 @@
     "docs": "Documentation",
     "source": "Code source sur GitHub",
     "menu": "Menu",
-    "language": "Langue"
+    "language": "Langue",
+    "toLight": "Passer au thème clair",
+    "toDark": "Passer au thème sombre"
   },
   "home": {
     "title": "Catch3 : des tests C++ au-delà des assertions",
@@ -93,15 +95,28 @@
     "verify": "Un script télécharge l'archive de votre processeur avec curl et la vérifie avec son fichier SHA-256, et avec son fichier BLAKE3 quand b3sum est installé. En cas d'écart, il s'arrête avant d'extraire quoi que ce soit ; sinon il extrait dans un répertoire temporaire et installe depuis celui-ci.",
     "libraryTitle": "La bibliothèque",
     "libraryText": "Catch3 est une bibliothèque C++17 compilée. Construisez-la et installez-la depuis l'archive source d'une version, puis trouvez-la avec CMake :",
-    "sourceArchive": "Sources de Catch3 {version}"
+    "sourceArchive": "Sources de Catch3 {version}",
+    "allFiles": "Toutes les versions et tous les fichiers"
   },
   "releases": {
     "title": "Versions",
-    "description": "Toutes les versions de Catch3, de la plus récente à la plus ancienne, avec leurs notes.",
-    "lede": "Toutes les versions de Catch3, de la plus récente à la plus ancienne. Les notes complètes de chacune sont sur GitHub.",
+    "description": "Toutes les versions de Catch3, de la plus récente à la plus ancienne, avec leurs notes et leurs fichiers. À côté de chaque archive se trouvent ses sommes SHA-256 et BLAKE3 et son SBOM CycloneDX.",
+    "lede": "Toutes les versions de Catch3, de la plus récente à la plus ancienne, avec leurs notes et leurs fichiers. À côté de chaque archive se trouvent ses sommes SHA-256 et BLAKE3 et son SBOM CycloneDX.",
     "latest": "Dernière",
-    "notes": "Notes de version",
-    "summaryLanguage": "Les résumés sont en anglais, comme les notes de version."
+    "library": "Bibliothèque",
+    "command": "Commande catch3",
+    "version": "Version",
+    "source": "Sources",
+    "noCommand": "Aucune version publiée ne contient la commande catch3 ; une version qui la contient liste ici ses archives pour macOS et Windows.",
+    "linuxRepositories": "Dépôts de paquets de Progmasoft",
+    "files": {
+      "sourceTarXz": "Sources (.tar.xz)",
+      "sourceZip": "Sources (.zip)",
+      "macosArm64": "macOS Apple silicon (.zip)",
+      "macosX86_64": "macOS Intel (.zip)",
+      "windowsX64": "Windows x64 (.zip)",
+      "windowsArm64": "Windows ARM64 (.zip)"
+    }
   },
   "footer": {
     "summary": "Un framework de test pour C++17, par Progmasoft.",

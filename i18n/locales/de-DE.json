@@ -8,7 +8,9 @@
     "docs": "Dokumentation",
     "source": "Quellcode auf GitHub",
     "menu": "Menü",
-    "language": "Sprache"
+    "language": "Sprache",
+    "toLight": "Zum hellen Design wechseln",
+    "toDark": "Zum dunklen Design wechseln"
   },
   "home": {
     "title": "Catch3: C++-Tests über Assertions hinaus",
@@ -93,15 +95,28 @@
     "verify": "Ein Skript lädt das Archiv für Ihren Prozessor mit curl und prüft es gegen seine SHA-256-Datei und, wenn b3sum installiert ist, gegen seine BLAKE3-Datei. Bei einer Abweichung bricht es ab, bevor etwas entpackt wird; sonst entpackt es in ein temporäres Verzeichnis und installiert von dort.",
     "libraryTitle": "Die Bibliothek",
     "libraryText": "Catch3 ist eine kompilierte C++17-Bibliothek. Bauen und installieren Sie sie aus dem Quellarchiv einer Version und finden Sie sie dann mit CMake:",
-    "sourceArchive": "Quellcode von Catch3 {version}"
+    "sourceArchive": "Quellcode von Catch3 {version}",
+    "allFiles": "Alle Versionen und Dateien"
   },
   "releases": {
     "title": "Versionen",
-    "description": "Alle Versionen von Catch3, die neueste zuerst, jeweils mit ihren Notizen.",
-    "lede": "Alle Versionen von Catch3, die neueste zuerst. Die vollständigen Notizen jeder Version stehen auf GitHub.",
+    "description": "Alle Versionen von Catch3, die neueste zuerst, mit ihren Hinweisen und Dateien. Neben jedem Archiv stehen seine SHA-256- und BLAKE3-Prüfsummen und seine CycloneDX-SBOM.",
+    "lede": "Alle Versionen von Catch3, die neueste zuerst, mit ihren Hinweisen und Dateien. Neben jedem Archiv stehen seine SHA-256- und BLAKE3-Prüfsummen und seine CycloneDX-SBOM.",
     "latest": "Neueste",
-    "notes": "Versionshinweise",
-    "summaryLanguage": "Die Zusammenfassungen sind auf Englisch, wie die Versionshinweise."
+    "library": "Bibliothek",
+    "command": "Befehl catch3",
+    "version": "Version",
+    "source": "Quellcode",
+    "noCommand": "Keine veröffentlichte Version enthält den Befehl catch3; eine Version, die ihn enthält, führt hier seine Archive für macOS und Windows auf.",
+    "linuxRepositories": "Paketquellen von Progmasoft",
+    "files": {
+      "sourceTarXz": "Quellcode (.tar.xz)",
+      "sourceZip": "Quellcode (.zip)",
+      "macosArm64": "macOS Apple Silicon (.zip)",
+      "macosX86_64": "macOS Intel (.zip)",
+      "windowsX64": "Windows x64 (.zip)",
+      "windowsArm64": "Windows ARM64 (.zip)"
+    }
   },
   "footer": {
     "summary": "Ein Testframework für C++17 von Progmasoft.",

@@ -6,7 +6,9 @@
 > Progmasoft writes are under the GNU LGPL, version 3 or later. Catch3 is not an official Catch2 release and is not
 > endorsed by Catch2's maintainers.
 
-The releases are at https://catch3.uk/releases/; the newest is listed first there and on GitHub.
+Every release is at https://catch3.uk/releases/, newest first, with its full notes and its files on
+storage.catch3.uk: the source as .tar.xz and .zip, each beside its .sha256sums, .b3sums and CycloneDX .cdx.json. The
+notes of a release open at https://catch3.uk/releases/#v<version>.
 
 - Familiar tests: test cases, assertions, sections, matchers, generators, listeners and benchmarks keep working.
 - The runner: tests run in parallel worker processes, a crash or a hang ends one test and not the run, failures are
@@ -30,7 +32,8 @@ The releases are at https://catch3.uk/releases/; the newest is listed first ther
 - [Home](https://catch3.uk/): what Catch3 adds, a property in a few lines, the builds and the licences.
 - [Download](https://catch3.uk/download): the page of each system (`?os=macos`, `?os=windows`, `?os=linux`), the
   catch3 command, and the library from source.
-- [Releases](https://catch3.uk/releases/): every release, newest first, with its notes.
+- [Releases](https://catch3.uk/releases/): every release, newest first, with its notes, its files and their sums and
+  SBOMs.
 
 ## Documentation
 

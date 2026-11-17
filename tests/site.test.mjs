@@ -4,7 +4,14 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { detectSystem, isSystem, systems } from "../app/utils/site.ts";
-import { majorMinor, newestFirst, releaseUrl, sourceArchiveUrl } from "../app/utils/releases.ts";
+import {
+  releaseAnchor,
+  commandFiles,
+  installerUrls,
+  majorMinor,
+  newestFirst,
+  sourceFiles,
+} from "../app/utils/releases.ts";
 
 test("a browser's system comes from its platform or its user agent", () => {
   assert.equal(detectSystem("Windows", ""), "windows");
@@ -50,16 +57,29 @@ test("releases are ordered newest first, number by number", () => {
   assert.equal(newestFirst("1.2.3", "1.2.3"), 0);
 });
 
-test("release addresses and the CMake version come from the release", () => {
-  const release = { tag: "catch3-0.4.0" };
-  assert.equal(
-    releaseUrl(release),
-    "https://github.com/Progmasoft/catch3/releases/tag/catch3-0.4.0",
+test("the files of a release are on storage.catch3.uk, each with its sums and SBOM", () => {
+  const [tarXz, zip] = sourceFiles("0.4.0");
+  assert.equal(tarXz.url, "https://storage.catch3.uk/0.4.0/source/catch3-0.4.0.tar.xz");
+  assert.equal(zip.url, "https://storage.catch3.uk/0.4.0/source/catch3-0.4.0.zip");
+  assert.equal(tarXz.sha256, `${tarXz.url}.sha256sums`);
+  assert.equal(tarXz.blake3, `${tarXz.url}.b3sums`);
+  assert.equal(tarXz.sbom, `${tarXz.url}.cdx.json`);
+  const command = commandFiles("1.0.0");
+  assert.deepEqual(
+    [...command.macos, ...command.windows].map((file) => file.url),
+    [
+      "https://storage.catch3.uk/1.0.0/darwin/arm64/catch3-1.0.0-darwin-arm64.zip",
+      "https://storage.catch3.uk/1.0.0/darwin/x86_64/catch3-1.0.0-darwin-x86_64.zip",
+      "https://storage.catch3.uk/1.0.0/windows/x64/catch3-1.0.0-windows-x64.zip",
+      "https://storage.catch3.uk/1.0.0/windows/arm64/catch3-1.0.0-windows-arm64.zip",
+    ],
   );
-  assert.equal(
-    sourceArchiveUrl(release),
-    "https://github.com/Progmasoft/catch3/archive/refs/tags/catch3-0.4.0.tar.gz",
-  );
+  assert.deepEqual(installerUrls("1.0.0"), {
+    zsh: "https://storage.catch3.uk/1.0.0/darwin/install.zsh",
+    powershell: "https://storage.catch3.uk/1.0.0/windows/Install-Catch3.ps1",
+    cmd: "https://storage.catch3.uk/1.0.0/windows/install.cmd",
+  });
+  assert.equal(releaseAnchor("0.4.0"), "v0.4.0");
   assert.equal(majorMinor("0.4.0"), "0.4");
   assert.equal(majorMinor("0.3.0.2"), "0.3");
 });

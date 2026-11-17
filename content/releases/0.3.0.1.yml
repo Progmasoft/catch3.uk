@@ -1,8 +1,0 @@
-# SPDX-FileCopyrightText: 2026 Progmasoft <support@progmasoft.com>
-# SPDX-License-Identifier: AGPL-3.0-or-later
-
-version: "0.3.0.1"
-date: "2026-11-01"
-tag: "catch3-0.3.0.1"
-summary: >-
-  The runner imports the reports of other test frameworks: JUnit, xUnit, TRX, TAP, CTRF and JSON Lines.

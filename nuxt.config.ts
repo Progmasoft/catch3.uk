@@ -3,6 +3,9 @@
 
 import { localePrefixes, sitePages } from "./app/utils/site";
 
+// The theme the visitor chose is set before the first paint, so it never flashes the other one.
+const theme = `try{var t=localStorage.getItem("catch3-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`;
+
 // Every page in every language, so the generated site holds them all even before a link is found.
 const routes = localePrefixes.flatMap((prefix) =>
   sitePages.map((page) => (prefix + page).replace(/(.)\/$/, "$1")),
@@ -50,6 +53,7 @@ export default defineNuxtConfig({
         { name: "theme-color", content: "#0b0d10", media: "(prefers-color-scheme: dark)" },
       ],
       // The icons are Catch3's ball; search results and browser tabs show them for the site.
+      script: [{ innerHTML: theme, tagPosition: "head" }],
       link: [
         { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico", sizes: "16x16 32x32 48x48" },

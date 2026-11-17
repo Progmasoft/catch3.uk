@@ -7,9 +7,10 @@
 // system appears once the page has started in the browser; before that, and without a script, it
 // shows the three systems to choose from.
 import { detectSystem, isSystem, systems, type System } from "~/utils/site";
-import { majorMinor, sourceArchiveUrl } from "~/utils/releases";
+import { majorMinor, sourceFiles } from "~/utils/releases";
 
 const { t } = useI18n();
+const localePath = useLocalePath();
 const route = useRoute();
 const router = useRouter();
 const { data: releases } = await useReleases();
@@ -182,9 +183,12 @@ install.cmd</code></pre>
       ><code>find_package(Catch3 {{ majorMinor(latest.version) }} CONFIG REQUIRED)
 target_link_libraries(MyTests PRIVATE Catch3::Catch3WithMain)</code></pre>
       <div v-if="latest" class="actions">
-        <a class="button button-primary" :href="sourceArchiveUrl(latest)">{{
+        <a class="button button-primary" :href="sourceFiles(latest.version)[0]?.url" download>{{
           t("download.sourceArchive", { version: latest.version })
         }}</a>
+        <NuxtLink class="button button-secondary" :to="localePath('/releases/')">{{
+          t("download.allFiles")
+        }}</NuxtLink>
       </div>
     </div>
   </section>

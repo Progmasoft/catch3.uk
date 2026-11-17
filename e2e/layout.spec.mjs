@@ -115,27 +115,54 @@ test("/download without a system shows the three systems", async ({ page }) => {
 });
 
 // Nuxt Content builds the site even when a file of content/releases does not match its schema, so
-// the releases are checked as the page shows them.
-test("every release has a version, a date, a summary and its notes", async ({ page }) => {
+// the releases are checked as the pages show them.
+test("every release has a version, a date, its notes and its source files", async ({ page }) => {
   await open(page, "/releases/");
-  const releases = await page.locator(".list > li").evaluateAll((items) =>
+  const rows = await page.locator(".rows > details").evaluateAll((items) =>
     items.map((item) => ({
-      title: item.querySelector("h2")?.textContent?.trim() ?? "",
+      id: item.id,
+      open: item.open,
+      version: item.querySelector(".version")?.textContent?.trim() ?? "",
       date: item.querySelector("time")?.getAttribute("datetime") ?? "",
-      summary: item.querySelector("p[lang=en]")?.textContent?.trim() ?? "",
-      notes: item.querySelector("a")?.getAttribute("href") ?? "",
+      notes: item.querySelector(".notes")?.textContent?.trim() ?? "",
+      files: [...item.querySelectorAll("a.file")].map((a) => a.getAttribute("href")),
     })),
   );
-  expect(releases.length).toBeGreaterThan(0);
-  for (const release of releases) {
-    const version = /^Catch3 (\d+(?:\.\d+){2,3})$/.exec(release.title)?.[1];
-    expect(version, release.title).toBeTruthy();
-    expect(release.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
-    expect(Number.isNaN(Date.parse(`${release.date}T00:00:00Z`))).toBe(false);
-    expect(release.summary.length).toBeGreaterThan(20);
-    const prefix = "https://github.com/Progmasoft/catch3/releases/tag/";
-    expect([`${prefix}catch3-${version}`, `${prefix}${version}`]).toContain(release.notes);
+  expect(rows.length).toBeGreaterThan(0);
+  expect(rows.map((row) => row.open)).toEqual(rows.map((_, index) => index === 0));
+  for (const row of rows) {
+    expect(row.version).toMatch(/^\d+(\.\d+){2,3}$/);
+    expect(row.id).toBe(`v${row.version}`);
+    expect(row.date).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(Number.isNaN(Date.parse(`${row.date}T00:00:00Z`))).toBe(false);
+    expect(row.notes.length).toBeGreaterThan(40);
+    const base = `https://storage.catch3.uk/${row.version}/source/catch3-${row.version}`;
+    expect(row.files).toEqual([`${base}.tar.xz`, `${base}.zip`]);
   }
+});
+
+test("an address naming a release opens its row", async ({ page }) => {
+  await open(page, "/releases/");
+  const last = (await page.locator(".rows .version").allTextContents()).at(-1)?.trim();
+  // A new load: going to the same page with another anchor would not load it again.
+  await page.goto("about:blank");
+  await open(page, `/releases/#v${last}`);
+  await expect(page.locator(`[id="v${last}"]`)).toHaveJSProperty("open", true);
+});
+
+test("the theme switch changes the theme and the page remembers it", async ({ page }) => {
+  await open(page, "/");
+  const theme = () => page.evaluate(() => document.documentElement.dataset.theme ?? "");
+  const ground = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  const before = await ground();
+  await page.locator("button.theme").click();
+  const chosen = await theme();
+  expect(["light", "dark"]).toContain(chosen);
+  expect(await ground()).not.toBe(before);
+  await page.reload();
+  expect(await theme()).toBe(chosen);
+  await page.locator("button.theme").click();
+  expect(await theme()).not.toBe(chosen);
 });
 
 test("the systems of the download page are macOS, Windows and Linux, in that order", async ({
