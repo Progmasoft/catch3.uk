@@ -15,6 +15,7 @@ It is built with Nuxt 4, Nuxt Content and Nuxt i18n, in English, German, Russian
 | `catch3.uk/download`                                      | sends the visitor to the download page of their operating system |
 | `catch3.uk/download?os=macos`, `?os=windows`, `?os=linux` | how to install Catch3 on that system                             |
 | `catch3.uk/releases/`                                     | every release with its notes and files                           |
+| `catch3.uk/docs/`, `catch3.uk/docs/<page>/`               | the documentation of Catch3; `/docs/changelog/` its changelog    |
 | `storage.catch3.uk/<version>/…`                           | the installers of each release                                   |
 | `survey.catch3.uk`                                        | the user survey, a Nitro server of its own                       |
 
@@ -69,7 +70,12 @@ Beside each archive are `<archive>.sha256sums`, `<archive>.b3sums` and `<archive
 
 ## Development
 
+The pages of `/docs/` are made from the `docs` folder of a checkout of
+[Progmasoft/catch3](https://github.com/Progmasoft/catch3), where the documentation lives with the source and keeps
+its licenses; `tools/docs.mjs` copies it into `content/docs`, which is not committed. CI uses the devel branch.
+
 ```bash
+node tools/docs.mjs ../catch3   # before anything else
 npm ci
 npm run dev           # http://localhost:3000
 npm run generate      # .output/public: every page in every language, and sitemap.xml

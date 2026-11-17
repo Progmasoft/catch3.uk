@@ -16,6 +16,7 @@ const route = useRoute();
 const links = computed(() => [
   { to: localePath("/") + "#features", label: t("nav.features") },
   { to: localePath("/releases/"), label: t("nav.releases") },
+  { to: localePath(docs), label: t("nav.docs") },
 ]);
 
 const languages = ref<HTMLDetailsElement>();
@@ -38,7 +39,6 @@ watch(
 
       <nav class="links" :aria-label="t('nav.label')">
         <NuxtLink v-for="link in links" :key="link.to" :to="link.to">{{ link.label }}</NuxtLink>
-        <a :href="docs">{{ t("nav.docs") }}</a>
       </nav>
 
       <div class="tools">
@@ -95,9 +95,6 @@ watch(
             </li>
             <li v-for="link in links" :key="link.to">
               <NuxtLink :to="link.to">{{ link.label }}</NuxtLink>
-            </li>
-            <li>
-              <a :href="docs">{{ t("nav.docs") }}</a>
             </li>
             <li>
               <a :href="repository">{{ t("nav.source") }}</a>

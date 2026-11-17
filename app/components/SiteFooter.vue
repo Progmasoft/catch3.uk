@@ -25,7 +25,7 @@ const localePath = useLocalePath();
             <NuxtLink :to="localePath('/releases/')">{{ t("nav.releases") }}</NuxtLink>
           </li>
           <li>
-            <a :href="docs">{{ t("nav.docs") }}</a>
+            <NuxtLink :to="localePath(docs)">{{ t("nav.docs") }}</NuxtLink>
           </li>
         </ul>
       </div>

@@ -27,6 +27,18 @@ jobs:
         with:
           node-version: 24
           cache: npm
+      # The documentation lives with Catch3's source; /docs/ is made from its devel branch.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Progmasoft/catch3
+          ref: devel
+          path: .catch3
+          sparse-checkout: |
+            docs
+            LICENSES
+          persist-credentials: false
+      # Before npm ci: its nuxt prepare reads the list of documents.
+      - run: node tools/docs.mjs .catch3
       - run: npm ci
       - run: npm run format:check
       - run: npm run check

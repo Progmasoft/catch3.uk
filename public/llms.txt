@@ -43,13 +43,16 @@ notes of a release open at https://catch3.uk/releases/#v<version>.
 
 ## Documentation
 
-- [Catch3 additions](https://github.com/Progmasoft/catch3/blob/devel/docs/progmasoft-catch3.md): properties,
+- [Documentation](https://catch3.uk/docs/): every page of the documentation, from the docs folder of the
+  source.
+- [Changelog](https://catch3.uk/docs/changelog/): every change, release by release.
+- [Catch3 additions](https://catch3.uk/docs/progmasoft-catch3/): properties,
   snapshots, results and XML.
-- [The Catch3 runner](https://github.com/Progmasoft/catch3/blob/devel/docs/progmasoft-runner.md)
-- [Mocking](https://github.com/Progmasoft/catch3/blob/devel/docs/progmasoft-mocking.md)
-- [Scope, compatibility and limitations](https://github.com/Progmasoft/catch3/blob/devel/docs/why-catch3.md)
-- [The command line](https://github.com/Progmasoft/catch3/blob/devel/docs/command-line.md)
-- [Tutorial](https://github.com/Progmasoft/catch3/blob/devel/docs/tutorial.md)
+- [The Catch3 runner](https://catch3.uk/docs/progmasoft-runner/)
+- [Mocking](https://catch3.uk/docs/progmasoft-mocking/)
+- [Scope, compatibility and limitations](https://catch3.uk/docs/why-catch3/)
+- [The command line](https://catch3.uk/docs/command-line/)
+- [Tutorial](https://catch3.uk/docs/tutorial/)
 
 ## Source
 
