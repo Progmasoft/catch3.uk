@@ -95,7 +95,7 @@ test("the menu of a phone opens inside the screen", async ({ page }) => {
 });
 
 // The page of each system is drawn in the browser from ?os=, so the sitemap does not list them.
-for (const system of ["linux", "macos", "windows"]) {
+for (const system of ["macos", "windows", "linux"]) {
   test(`/download?os=${system} fits the screen`, async ({ page }) => {
     await open(page, `/download?os=${system}`);
     await expect(page.locator(".system[aria-current=page]")).toHaveCount(1);
@@ -136,4 +136,11 @@ test("every release has a version, a date, a summary and its notes", async ({ pa
     const prefix = "https://github.com/Progmasoft/catch3/releases/tag/";
     expect([`${prefix}catch3-${version}`, `${prefix}${version}`]).toContain(release.notes);
   }
+});
+
+test("the systems of the download page are macOS, Windows and Linux, in that order", async ({
+  page,
+}) => {
+  await open(page, "/download");
+  await expect(page.locator(".system")).toHaveText(["macOS", "Windows", "Linux"]);
 });

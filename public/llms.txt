@@ -28,7 +28,7 @@ The releases are at https://catch3.uk/releases/; the newest is listed first ther
 ## Pages
 
 - [Home](https://catch3.uk/): what Catch3 adds, a property in a few lines, the builds and the licences.
-- [Download](https://catch3.uk/download): the page of each system (`?os=linux`, `?os=macos`, `?os=windows`), the
+- [Download](https://catch3.uk/download): the page of each system (`?os=macos`, `?os=windows`, `?os=linux`), the
   catch3 command, and the library from source.
 - [Releases](https://catch3.uk/releases/): every release, newest first, with its notes.
 

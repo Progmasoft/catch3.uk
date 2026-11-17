@@ -13,7 +13,7 @@ It is built with Nuxt 4, Nuxt Content and Nuxt i18n, in English, German, Russian
 | --------------------------------------------------------- | ---------------------------------------------------------------- |
 | `catch3.uk/`                                              | the home page                                                    |
 | `catch3.uk/download`                                      | sends the visitor to the download page of their operating system |
-| `catch3.uk/download?os=linux`, `?os=macos`, `?os=windows` | how to install Catch3 on that system                             |
+| `catch3.uk/download?os=macos`, `?os=windows`, `?os=linux` | how to install Catch3 on that system                             |
 | `catch3.uk/releases/`                                     | every release with its notes and files                           |
 | `storage.catch3.uk/<version>/…`                           | the installers of each release                                   |
 | `survey.catch3.uk`                                        | the user survey, a Nitro server of its own                       |
