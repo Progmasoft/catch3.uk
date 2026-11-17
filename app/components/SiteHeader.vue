@@ -44,12 +44,16 @@ watch(
       <div class="tools">
         <ThemeToggle />
         <details ref="languages" class="dropdown">
-          <summary class="icon-button" :aria-label="t('nav.language')" :title="t('nav.language')">
+          <summary class="language" :aria-label="t('nav.language')" :title="t('nav.language')">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="9" />
               <path
                 d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"
               />
+            </svg>
+            <span>{{ locale.toUpperCase() }}</span>
+            <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m7 10 5 5 5-5" />
             </svg>
           </summary>
           <ul>
@@ -207,15 +211,56 @@ watch(
   position: relative;
 }
 
+/* The language: a small pill with the code of the page's language, as compact as the links. */
+.language {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  list-style: none;
+}
+
+.language::-webkit-details-marker {
+  display: none;
+}
+
+.language:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.language svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.language .chevron {
+  width: 14px;
+  height: 14px;
+}
+
 .dropdown ul {
   position: absolute;
   inset-inline-end: 0;
   top: calc(100% + 8px);
-  min-width: 200px;
+  min-width: 160px;
   margin: 0;
-  padding: 8px;
+  padding: 6px;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 14px;
   background: var(--ground);
   box-shadow: 0 18px 50px rgb(0 0 0 / 14%);
   list-style: none;
@@ -224,10 +269,11 @@ watch(
 .dropdown li a {
   display: flex;
   align-items: center;
-  min-height: 44px;
-  padding: 0 14px;
-  border-radius: 12px;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 9px;
   color: var(--ink);
+  font-size: 0.92rem;
   text-decoration: none;
 }
 

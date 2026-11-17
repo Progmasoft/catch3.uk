@@ -173,3 +173,35 @@ test("the systems of the download page are macOS, Windows and Linux, in that ord
   await open(page, "/download");
   await expect(page.locator(".system")).toHaveText(["macOS", "Windows", "Linux"]);
 });
+
+// nginx answers every unknown address with /404.html; the file server of these tests has its own
+// 404, so the page is opened by its name.
+test("the page of an unknown address has the site around it and fits the screen", async ({
+  page,
+}) => {
+  await open(page, "/404.html");
+  await expect(page.locator("h1")).toHaveText("Page not caught");
+  await expect(page.locator(".status")).toHaveText("404");
+  await expect(page).toHaveTitle("Page not caught · Catch3");
+  await expect(page.locator("header.header")).toBeVisible();
+  await expect(page.locator("footer.footer")).toBeVisible();
+  const overflow = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  );
+  expect(overflow).toBe(0);
+  expect(await elementsPastTheEdges(page)).toEqual([]);
+});
+
+test("the language control is a small pill with a compact menu", async ({ page }) => {
+  await open(page, "/");
+  const pill = page.locator("summary.language");
+  await expect(pill).toHaveText("EN");
+  const box = await pill.boundingBox();
+  expect(box?.height ?? 0).toBeLessThanOrEqual(36);
+  await pill.click();
+  const item = page.locator("details.dropdown:not(.mobile) li a").first();
+  await expect(item).toBeVisible();
+  const itemBox = await item.boundingBox();
+  expect(itemBox?.height ?? 0).toBeLessThanOrEqual(40);
+  expect(itemBox?.height ?? 0).toBeGreaterThanOrEqual(24);
+});

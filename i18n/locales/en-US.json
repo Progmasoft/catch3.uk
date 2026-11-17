@@ -126,5 +126,13 @@
     "siteSource": "Site source",
     "progmasoft": "Progmasoft",
     "site": "This site is free software under the GNU AGPL, version 3 or later."
+  },
+  "error": {
+    "notFoundTitle": "Page not caught",
+    "notFoundText": "The page you are looking for does not exist or has moved. Go back home, or look through the releases of Catch3.",
+    "otherTitle": "Something went wrong",
+    "otherText": "This page could not be shown. Go back home, or look through the releases of Catch3.",
+    "home": "Return home",
+    "releases": "View releases"
   }
 }
