@@ -42,6 +42,7 @@ watch(
       </nav>
 
       <div class="tools">
+        <ThemeToggle />
         <details ref="languages" class="dropdown">
           <summary class="icon-button" :aria-label="t('nav.language')" :title="t('nav.language')">
             <svg viewBox="0 0 24 24" aria-hidden="true">

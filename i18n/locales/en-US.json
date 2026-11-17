@@ -8,7 +8,9 @@
     "docs": "Documentation",
     "source": "Source on GitHub",
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "toLight": "Switch to the light theme",
+    "toDark": "Switch to the dark theme"
   },
   "home": {
     "title": "Catch3: C++ testing beyond assertions",
@@ -93,15 +95,28 @@
     "verify": "A script downloads the archive for your processor with curl and checks it against its SHA-256 file, and against its BLAKE3 file when b3sum is installed. A mismatch stops it before anything is extracted; it then extracts into a temporary directory and installs from there.",
     "libraryTitle": "The library",
     "libraryText": "Catch3 is a compiled C++17 library. Build and install it from the source archive of a release, then find it with CMake:",
-    "sourceArchive": "Source of Catch3 {version}"
+    "sourceArchive": "Source of Catch3 {version}",
+    "allFiles": "Every release and file"
   },
   "releases": {
     "title": "Releases",
-    "description": "Every release of Catch3, newest first, with the notes of each.",
-    "lede": "Every release of Catch3, newest first. The full notes of each are on GitHub.",
+    "description": "Every release of Catch3, newest first, with its notes and its files. Beside each archive are its SHA-256 and BLAKE3 sums and its CycloneDX SBOM.",
+    "lede": "Every release of Catch3, newest first, with its notes and its files. Beside each archive are its SHA-256 and BLAKE3 sums and its CycloneDX SBOM.",
     "latest": "Latest",
-    "notes": "Release notes",
-    "summaryLanguage": "The summaries are in English, as the release notes are."
+    "library": "Library",
+    "command": "catch3 command",
+    "version": "Version",
+    "source": "Source",
+    "noCommand": "No published release has the catch3 command; a release that has it lists its archives for macOS and Windows here.",
+    "linuxRepositories": "Progmasoft's package repositories",
+    "files": {
+      "sourceTarXz": "Source (.tar.xz)",
+      "sourceZip": "Source (.zip)",
+      "macosArm64": "macOS Apple silicon (.zip)",
+      "macosX86_64": "macOS Intel (.zip)",
+      "windowsX64": "Windows x64 (.zip)",
+      "windowsArm64": "Windows ARM64 (.zip)"
+    }
   },
   "footer": {
     "summary": "A C++17 test framework by Progmasoft.",

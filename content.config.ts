@@ -3,17 +3,20 @@
 
 import { defineCollection, defineContentConfig, z } from "@nuxt/content";
 
-// One file for each release of Catch3. The summaries are English, as the release notes are.
+// One file for each release of Catch3: its facts above, its full notes below. The notes are in
+// English, as on GitHub.
 export default defineContentConfig({
   collections: {
     releases: defineCollection({
-      type: "data",
-      source: "releases/*.yml",
+      type: "page",
+      source: "releases/*.md",
       schema: z.object({
         version: z.string(),
         date: z.string(),
         tag: z.string(),
         summary: z.string(),
+        // Whether the release has the catch3 command, with its archives on storage.catch3.uk.
+        command: z.boolean().default(false),
       }),
     }),
   },
