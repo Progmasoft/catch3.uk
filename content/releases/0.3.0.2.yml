@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Progmasoft <support@progmasoft.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+version: "0.3.0.2"
+date: "2026-11-01"
+tag: "catch3-0.3.0.2"
+summary: >-
+  Mocks of virtual interfaces and of free functions behind a seam, checking call counts, arguments and order.

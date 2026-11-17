@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "skip": "Skip to the content",
+    "label": "Site",
+    "features": "Features",
+    "download": "Download",
+    "releases": "Releases",
+    "docs": "Documentation",
+    "source": "Source on GitHub",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Catch3: C++ testing beyond assertions",
+    "description": "Catch3 keeps the tests you write for Catch2 and adds a runner of its own, property tests, mocks, snapshots and structured results. C++17.",
+    "eyebrow": "A C++17 test framework",
+    "headline": "C++ testing beyond assertions.",
+    "lede": "Catch3 keeps the test cases, assertions and sections you write for Catch2, and adds a runner of its own, property tests, mocks, snapshots and structured results.",
+    "download": "Download",
+    "docs": "Read the documentation",
+    "field": "A field of tests in perspective: a wave turns them green, one turns red, is caught and turns green.",
+    "featuresTitle": "What Catch3 adds",
+    "featuresLede": "Everything Catch2 tests do keeps working. What Catch3 adds is beside it, in its own headers and its own library.",
+    "features": {
+      "authoring": {
+        "title": "Familiar tests",
+        "text": "Test cases, assertions, sections, matchers, generators, listeners and benchmarks keep working unchanged."
+      },
+      "runner": {
+        "title": "A runner of its own",
+        "text": "Tests run in parallel worker processes; a crash or a hang ends one test, not the run. Failures are retried to tell flaky and order-dependent tests apart."
+      },
+      "history": {
+        "title": "A run remembers",
+        "text": "History drives time limits, ordering, incremental runs and replay. Flaky tests go to quarantine; reports come out as console, JUnit, JSON and traces."
+      },
+      "properties": {
+        "title": "Property tests",
+        "text": "Values come from a reproducible seed, a predicate is checked over many trials, and a failing input shrinks to a smaller counterexample."
+      },
+      "mocks": {
+        "title": "Mocks",
+        "text": "Mocks of virtual interfaces and of free functions behind a seam check call counts, arguments and order."
+      },
+      "snapshots": {
+        "title": "Snapshots and results",
+        "text": "Text snapshots in files you choose, and a public result model with a deterministic JUnit XML writer."
+      }
+    },
+    "exampleTitle": "A property in a few lines",
+    "exampleText": "The root seed and the derivation of each trial are stable, so a failing trial that is reported can be replayed.",
+    "buildsTitle": "Builds with what you use",
+    "buildsText": "Bazel is the main build. CMake, Meson, Xmake and Premake project files are kept beside it, and an installed Catch3 is found with find_package or pkg-config.",
+    "licenseTitle": "Free software",
+    "licenseText": "Files that come from Catch2 keep the Boost Software License 1.0; files Progmasoft writes are under the GNU LGPL, version 3 or later. Catch3 is not an official Catch2 release and is not endorsed by Catch2's maintainers.",
+    "ctaTitle": "Start with Catch3",
+    "ctaText": "Download the library, read how a Catch2 project moves over, and run your first property.",
+    "releases": "All releases"
+  },
+  "download": {
+    "title": "Download Catch3",
+    "description": "Install the catch3 command on Linux, macOS or Windows, or use the Catch3 library from source.",
+    "lede": "Choose your system. The page shows how to install the catch3 command there.",
+    "systems": {
+      "linux": "Linux",
+      "macos": "macOS",
+      "windows": "Windows"
+    },
+    "requirements": {
+      "linux": "Linux with glibc 2.28 or later, on x86-64 or ARM64.",
+      "macos": "macOS 13 or later, on Apple silicon or Intel.",
+      "windows": "Windows 10 or later, 64-bit, on x64 or ARM64."
+    },
+    "notice": "Catch3 {version}, the latest release, has no catch3 command; the installers below fetch it from the first release that has one. The library below is in every release.",
+    "commandTitle": "The catch3 command",
+    "commandText": "catch3 reads test results and reports them, imports the results of other test frameworks and runs test binaries. It carries its C++ standard library inside, so it asks nothing of the system's libstdc++.",
+    "repositoriesTitle": "Package repositories",
+    "repositoriesText": "Progmasoft keeps a repository for each package manager:",
+    "scriptTitle": "Install with a script",
+    "macosRun": "Download the installer of the release and run it:",
+    "windowsPowerShell": "In PowerShell 7:",
+    "windowsCmd": "In the Command Prompt:",
+    "optionsTitle": "Options",
+    "option": "Option",
+    "effect": "Effect",
+    "optionUser": "Without options the script installs for the current user.",
+    "optionGlobal": "installs for every user of the machine",
+    "optionLanguage": "the language of its messages",
+    "optionHelp": "prints the help",
+    "caseZsh": "The options of install.zsh tell upper and lower case apart.",
+    "caseCmd": "The options of install.cmd tell upper and lower case apart, except /HELP.",
+    "casePowerShell": "The options of Install-Catch3.ps1 do not tell upper and lower case apart.",
+    "verify": "A script downloads the archive for your processor with curl and checks it against its SHA-256 file, and against its BLAKE3 file when b3sum is installed. A mismatch stops it before anything is extracted; it then extracts into a temporary directory and installs from there.",
+    "libraryTitle": "The library",
+    "libraryText": "Catch3 is a compiled C++17 library. Build and install it from the source archive of a release, then find it with CMake:",
+    "sourceArchive": "Source of Catch3 {version}"
+  },
+  "releases": {
+    "title": "Releases",
+    "description": "Every release of Catch3, newest first, with the notes of each.",
+    "lede": "Every release of Catch3, newest first. The full notes of each are on GitHub.",
+    "latest": "Latest",
+    "notes": "Release notes",
+    "summaryLanguage": "The summaries are in English, as the release notes are."
+  },
+  "footer": {
+    "summary": "A C++17 test framework by Progmasoft.",
+    "project": "Project",
+    "source": "Source",
+    "issues": "Issues",
+    "siteSource": "Site source",
+    "progmasoft": "Progmasoft",
+    "site": "This site is free software under the GNU AGPL, version 3 or later."
+  }
+}

@@ -1,0 +1,8 @@
+# SPDX-FileCopyrightText: 2026 Progmasoft <support@progmasoft.com>
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+version: "0.3.0"
+date: "2026-11-01"
+tag: "catch3-0.3.0"
+summary: >-
+  The Catch3 runner replaces Catch2's session, command line and reporters: parallel worker processes, retries that tell flaky and order-dependent failures apart, history and reports. Catch3 becomes C++17.
