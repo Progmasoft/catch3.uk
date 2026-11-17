@@ -126,5 +126,13 @@
     "siteSource": "Code source du site",
     "progmasoft": "Progmasoft",
     "site": "Ce site est un logiciel libre sous GNU AGPL, version 3 ou ultérieure."
+  },
+  "error": {
+    "notFoundTitle": "Page non attrapée",
+    "notFoundText": "La page que vous cherchez n'existe pas ou a été déplacée. Revenez à l'accueil ou parcourez les versions de Catch3.",
+    "otherTitle": "Une erreur est survenue",
+    "otherText": "Cette page n'a pas pu être affichée. Revenez à l'accueil ou parcourez les versions de Catch3.",
+    "home": "Retour à l'accueil",
+    "releases": "Voir les versions"
   }
 }
