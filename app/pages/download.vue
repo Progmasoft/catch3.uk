@@ -40,7 +40,8 @@ const repositories = [
   { host: "dnf.progmasoft.com", manager: "DNF", systems: "Fedora, RHEL, AlmaLinux, Rocky Linux" },
   { host: "zypp.progmasoft.com", manager: "Zypper", systems: "openSUSE, SUSE Linux Enterprise" },
   { host: "pacman.progmasoft.com", manager: "pacman", systems: "Arch Linux" },
-  { host: "nix.progmasoft.com", manager: "Nix", systems: "NixOS, Nix (Git)" },
+  { host: "nix.progmasoft.com/flakes", manager: "Nix", systems: "NixOS, Nix: flakes (Git)" },
+  { host: "nix.progmasoft.com/cache", manager: "Nix", systems: "NixOS, Nix: binary cache" },
 ];
 
 const options = {

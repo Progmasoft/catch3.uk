@@ -43,13 +43,13 @@ installs from there. Without arguments it installs for the current user.
 
 ### The Linux package repositories of Progmasoft
 
-| Package manager | Repository                             |
-| --------------- | -------------------------------------- |
-| APT             | `apt.progmasoft.com`                   |
-| DNF             | `dnf.progmasoft.com`                   |
-| Zypper          | `zypp.progmasoft.com`                  |
-| Nix             | `nix.progmasoft.com`, a Git repository |
-| pacman          | `pacman.progmasoft.com`                |
+| Package manager | Repository                                                                                                |
+| --------------- | --------------------------------------------------------------------------------------------------------- |
+| APT             | `apt.progmasoft.com`                                                                                      |
+| DNF             | `dnf.progmasoft.com`                                                                                      |
+| Zypper          | `zypp.progmasoft.com`                                                                                     |
+| Nix             | `nix.progmasoft.com/flakes`, a Git repository of flakes, and `nix.progmasoft.com/cache`, its binary cache |
+| pacman          | `pacman.progmasoft.com`                                                                                   |
 
 ### storage.catch3.uk
 
