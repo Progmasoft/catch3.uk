@@ -418,6 +418,15 @@ td:first-child code {
     font-size: 0.84rem;
   }
 
+  /* A long label (French, German) wraps inside its button rather than past the edge. */
+  .button {
+    max-width: 100%;
+    min-height: 48px;
+    padding-block: 10px;
+    text-align: center;
+    white-space: normal;
+  }
+
   .actions .button {
     flex: 1 1 auto;
   }
