@@ -3,9 +3,11 @@
 
 <script setup lang="ts">
 import { docs } from "~/utils/site";
+import { catch3Data, jsonLd } from "~/utils/structured";
 
-const { t } = useI18n();
+const { t, locale, locales } = useI18n();
 const localePath = useLocalePath();
+const { data: releases } = await useReleases();
 
 useSeoMeta({
   title: () => t("home.title"),
@@ -13,6 +15,22 @@ useSeoMeta({
   ogTitle: () => t("home.title"),
   ogDescription: () => t("home.description"),
 });
+
+// What search engines read about Catch3, in the language of the page.
+const language = computed(
+  () => locales.value.find((item) => item.code === locale.value)?.language ?? "en-US",
+);
+useHead(() => ({
+  script: [
+    {
+      key: "structured-data",
+      type: "application/ld+json",
+      innerHTML: jsonLd(
+        catch3Data(language.value, localePath("/"), t("home.description"), releases.value?.[0]),
+      ),
+    },
+  ],
+}));
 
 const features = ["authoring", "runner", "history", "properties", "mocks", "snapshots"] as const;
 const builds = ["Bazel", "CMake", "Meson", "Xmake", "Premake"];

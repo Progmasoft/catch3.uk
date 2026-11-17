@@ -1,0 +1,53 @@
+# Catch3
+
+> Catch3 is a C++17 test framework by Progmasoft. It keeps the test cases, assertions and sections written for Catch2,
+> and adds a runner of its own, property tests, mocks, snapshots and structured results. It is a compiled library;
+> its headers work in C++17 and later. Files that come from Catch2 keep the Boost Software License 1.0; files
+> Progmasoft writes are under the GNU LGPL, version 3 or later. Catch3 is not an official Catch2 release and is not
+> endorsed by Catch2's maintainers.
+
+The releases are at https://catch3.uk/releases/; the newest is listed first there and on GitHub.
+
+- Familiar tests: test cases, assertions, sections, matchers, generators, listeners and benchmarks keep working.
+- The runner: tests run in parallel worker processes, a crash or a hang ends one test and not the run, failures are
+  retried to tell flaky and order-dependent tests apart, flaky tests go to quarantine, a history drives time limits,
+  ordering, incremental runs and replay, and reports come out as console, JUnit, JSON and traces. It imports the
+  results of other test frameworks (JUnit, xUnit, TRX, TAP, CTRF) and keeps per-test coverage (LLVM source-based
+  coverage and gcov).
+- Property tests: values from a reproducible seed, a predicate checked over many trials, and a failing input shrunk
+  to a smaller counterexample.
+- Mocks of virtual interfaces and of free functions behind a seam, checking call counts, arguments and order.
+- Text snapshots in files the test chooses, and a public result model with a deterministic JUnit XML writer.
+- Builds: Bazel is the main build; CMake, Meson, Xmake and Premake project files are kept beside it. An installed
+  Catch3 is found with `find_package(Catch3 CONFIG REQUIRED)` and linked as `Catch3::Catch3` or
+  `Catch3::Catch3WithMain`; headers are included as `<Progmasoft/Catch3/...>`.
+- The `catch3` command reads test results and reports them, imports the results of other frameworks and runs test
+  binaries. It is not in the published releases; its installers are described at
+  https://catch3.uk/download.
+
+## Pages
+
+- [Home](https://catch3.uk/): what Catch3 adds, a property in a few lines, the builds and the licences.
+- [Download](https://catch3.uk/download): the page of each system (`?os=linux`, `?os=macos`, `?os=windows`), the
+  catch3 command, and the library from source.
+- [Releases](https://catch3.uk/releases/): every release, newest first, with its notes.
+
+## Documentation
+
+- [Catch3 additions](https://github.com/Progmasoft/catch3/blob/devel/docs/progmasoft-catch3.md): properties,
+  snapshots, results and XML.
+- [The Catch3 runner](https://github.com/Progmasoft/catch3/blob/devel/docs/progmasoft-runner.md)
+- [Mocking](https://github.com/Progmasoft/catch3/blob/devel/docs/progmasoft-mocking.md)
+- [Scope, compatibility and limitations](https://github.com/Progmasoft/catch3/blob/devel/docs/why-catch3.md)
+- [The command line](https://github.com/Progmasoft/catch3/blob/devel/docs/command-line.md)
+- [Tutorial](https://github.com/Progmasoft/catch3/blob/devel/docs/tutorial.md)
+
+## Source
+
+- [Repository](https://github.com/Progmasoft/catch3): source and issues; development happens on the devel branch.
+- [Progmasoft](https://progmasoft.com/llms.txt): the other projects of Progmasoft.
+
+## Optional
+
+- The site is also in German (https://catch3.uk/de), Russian (https://catch3.uk/ru) and French
+  (https://catch3.uk/fr).
