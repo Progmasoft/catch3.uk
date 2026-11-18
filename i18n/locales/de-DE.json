@@ -134,5 +134,10 @@
     "otherText": "Diese Seite konnte nicht angezeigt werden. Kehren Sie zur Startseite zurück oder sehen Sie sich die Versionen von Catch3 an.",
     "home": "Zur Startseite",
     "releases": "Versionen ansehen"
+  },
+  "docs": {
+    "source": "Diese Seite auf GitHub",
+    "license": "Lizenzen der Dokumentation",
+    "description": "Die Dokumentation von Catch3: Tests schreiben, der Runner, die Kommandozeile und was Catch3 zur API von Catch2 hinzufügt."
   }
 }

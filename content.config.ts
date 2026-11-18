@@ -19,5 +19,18 @@ export default defineContentConfig({
         command: z.boolean().default(false),
       }),
     }),
+    // The documentation of Catch3, copied from its source by tools/docs.mjs before a build. It is
+    // in English, as in the repository; the page around it is in the visitor's language.
+    docs: defineCollection({
+      type: "page",
+      source: "docs/*.md",
+      schema: z.object({
+        title: z.string(),
+        // The document in Progmasoft/catch3, such as docs/tutorial.md.
+        source: z.string(),
+        // The page under /docs/; empty for /docs/ itself.
+        slug: z.string(),
+      }),
+    }),
   },
 });

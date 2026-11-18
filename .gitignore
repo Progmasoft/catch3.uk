@@ -14,3 +14,7 @@ coverage/
 .env.*
 test-results/
 playwright-report/
+
+# The documentation, copied from Progmasoft/catch3 by tools/docs.mjs before a build.
+content/docs/
+.catch3/

@@ -4,12 +4,13 @@
 import { readFileSync } from "node:fs";
 import { expect, test } from "@playwright/test";
 
-// Every page of the site in every language: the generated sitemap lists them.
+// Every page of the site in every language, as the generated sitemap lists them; of the documents,
+// every one in English and the index in each language, as the other languages show the same text.
 // Playwright runs from the repository root.
 const sitemap = readFileSync(".output/public/sitemap.xml", "utf8");
-const pages = [...sitemap.matchAll(/<loc>https:\/\/catch3\.uk([^<]*)<\/loc>/g)].map(
-  (match) => match[1],
-);
+const pages = [...sitemap.matchAll(/<loc>https:\/\/catch3\.uk([^<]*)<\/loc>/g)]
+  .map((match) => match[1])
+  .filter((path) => !/^\/(de|ru|fr)\/docs\/./.test(path));
 
 async function open(page, path) {
   const response = await page.goto(`http://catch3.uk${path}`);

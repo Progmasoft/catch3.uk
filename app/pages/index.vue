@@ -47,7 +47,9 @@ const builds = ["Bazel", "CMake", "Meson", "Xmake", "Premake"];
         <NuxtLink class="button button-primary" :to="localePath('/download')">{{
           t("home.download")
         }}</NuxtLink>
-        <a class="button button-secondary" :href="docs">{{ t("home.docs") }}</a>
+        <NuxtLink class="button button-secondary" :to="localePath(docs)">{{
+          t("home.docs")
+        }}</NuxtLink>
       </div>
     </div>
     <div class="shell">

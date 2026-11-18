@@ -8,8 +8,8 @@ export const siteUrl = "https://catch3.uk";
 export const repository = "https://github.com/Progmasoft/catch3";
 export const siteRepository = "https://github.com/Progmasoft/catch3.uk";
 
-/** The documentation of Catch3, which lives with its source. */
-export const docs = `${repository}/blob/devel/docs`;
+/** The documentation of Catch3: the pages /docs/ makes from the docs folder of its source. */
+export const docs = "/docs/";
 
 /** The path prefix of each language; English, the default, has none. */
 export const localePrefixes = ["", "/de", "/ru", "/fr"] as const;

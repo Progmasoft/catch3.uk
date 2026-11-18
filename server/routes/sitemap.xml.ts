@@ -1,16 +1,18 @@
 // SPDX-FileCopyrightText: 2026 Progmasoft <support@progmasoft.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { docPath } from "../../app/utils/docs";
 import { localePrefixes, localeTags, sitePages, siteUrl } from "../../app/utils/site";
+import docPages from "../../content/docs/pages.json";
 
 /** The address of a page in a language: English has no prefix, and the home page no slash. */
 function address(prefix: (typeof localePrefixes)[number], page: string) {
   return siteUrl + (prefix && page === "/" ? prefix : prefix + page);
 }
 
-/** Every page, each with its address in every language. */
+/** Every page, the documents among them, each with its address in every language. */
 export default defineEventHandler((event) => {
-  const entries = sitePages.flatMap((page) =>
+  const entries = [...sitePages, ...docPages.map(docPath)].flatMap((page) =>
     localePrefixes.map((prefix) => {
       const alternates = localePrefixes
         .map(

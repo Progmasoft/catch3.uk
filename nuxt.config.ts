@@ -1,14 +1,17 @@
 // SPDX-FileCopyrightText: 2026 Progmasoft <support@progmasoft.com>
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+import { docPath } from "./app/utils/docs";
 import { localePrefixes, sitePages } from "./app/utils/site";
+// Written by tools/docs.mjs, which runs before every build.
+import docPages from "./content/docs/pages.json";
 
 // The theme the visitor chose is set before the first paint, so it never flashes the other one.
 const theme = `try{var t=localStorage.getItem("catch3-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}`;
 
 // Every page in every language, so the generated site holds them all even before a link is found.
 const routes = localePrefixes.flatMap((prefix) =>
-  sitePages.map((page) => (prefix + page).replace(/(.)\/$/, "$1")),
+  [...sitePages, ...docPages.map(docPath)].map((page) => (prefix + page).replace(/(.)\/$/, "$1")),
 );
 
 export default defineNuxtConfig({
