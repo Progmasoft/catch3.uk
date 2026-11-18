@@ -54,7 +54,7 @@
     "buildsTitle": "Baut mit dem, was Sie nutzen",
     "buildsText": "Bazel ist der Haupt-Build. Projektdateien für CMake, Meson, Xmake und Premake werden daneben gepflegt, und ein installiertes Catch3 wird mit find_package oder pkg-config gefunden.",
     "licenseTitle": "Freie Software",
-    "licenseText": "Dateien aus Catch2 behalten die Boost Software License 1.0; Dateien, die Progmasoft schreibt, stehen unter der GNU LGPL, Version 3 oder später. Catch3 ist keine offizielle Catch2-Version und wird von den Catch2-Maintainern nicht unterstützt.",
+    "licenseText": "Dateien aus Catch2 behalten die Boost Software License 1.0; Dateien, die Progmasoft schreibt, stehen ab Catch3 0.5.0 unter der GNU LGPL, Version 3 oder später (frühere Versionen behalten die MPL-2.0 mit der Progmasoft Linking Exception). Catch3 als Ganzes steht daher nicht allein unter der Boost-Lizenz, und seine Boost-Dateien heben die LGPL der übrigen nicht auf. Ob und was die LGPL von Ihnen verlangt, hängt vom Fall ab: Eigene Tests auszuführen verlangt meist nichts; wer Catch3 oder ein damit gebautes Werk an andere weitergibt, muss je nach Art des Linkens und der Weitergabe unter Umständen etwa einen Hinweis, den Quellcode von Catch3 oder eine Möglichkeit zum Neulinken bereitstellen. Die Lizenzhinweise im Repository gehen die Fälle durch. Catch3 ist keine offizielle Catch2-Version und wird von den Catch2-Maintainern nicht unterstützt.",
     "ctaTitle": "Mit Catch3 beginnen",
     "ctaText": "Laden Sie die Bibliothek herunter, lesen Sie, wie ein Catch2-Projekt umzieht, und führen Sie Ihre erste Property aus.",
     "releases": "Alle Versionen"
