@@ -106,8 +106,6 @@
     "library": "Библиотека",
     "command": "Команда catch3",
     "version": "Версия",
-    "source": "Исходный код",
-    "noCommand": "Ни одна опубликованная версия не содержит команду catch3; версия, которая её содержит, перечисляет здесь её архивы для macOS и Windows.",
     "linuxRepositories": "Репозитории пакетов Progmasoft",
     "files": {
       "sourceTarXz": "Исходный код (.tar.xz)",
