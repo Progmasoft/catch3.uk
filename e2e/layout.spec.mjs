@@ -158,12 +158,15 @@ test("the theme switch changes the theme and the page remembers it", async ({ pa
   const theme = () => page.evaluate(() => document.documentElement.dataset.theme ?? "");
   const ground = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
   const before = await ground();
+  // A click before Vue has mounted the page does nothing, so wait for the app.
+  await page.waitForFunction(() => Boolean(document.querySelector("#__nuxt")?.__vue_app__));
   await page.locator("button.theme").click();
   const chosen = await theme();
   expect(["light", "dark"]).toContain(chosen);
   expect(await ground()).not.toBe(before);
   await page.reload();
   expect(await theme()).toBe(chosen);
+  await page.waitForFunction(() => Boolean(document.querySelector("#__nuxt")?.__vue_app__));
   await page.locator("button.theme").click();
   expect(await theme()).not.toBe(chosen);
 });
